@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/sidebar';
 import {
   BarChart3,
-  LayoutDashboard,
+  Home,
   Leaf,
   QrCode,
   Sparkles,
@@ -24,12 +24,12 @@ import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { Separator } from '../ui/separator';
 
 const menuItems = [
-  { href: '/', label: 'Dashboard', icon: LayoutDashboard },
-  { href: '/vendors', label: 'Vendors', icon: Store },
-  { href: '/leaderboard', label: 'Leaderboard', icon: Trophy },
-  { href: '/analytics', label: 'Analytics', icon: BarChart3 },
-  { href: '/recommendations', label: 'Recommendations', icon: Sparkles },
-  { href: '/check-in', label: 'Check-in', icon: QrCode },
+  { href: '/dashboard', label: 'Home', icon: Home },
+  { href: '/dashboard/vendors', label: 'Vendors', icon: Store },
+  { href: '/dashboard/leaderboard', label: 'Leaderboard', icon: Trophy },
+  { href: '/dashboard/analytics', label: 'Analytics', icon: BarChart3 },
+  { href: '/dashboard/recommendations', label: 'Recommendations', icon: Sparkles },
+  { href: '/dashboard/check-in', label: 'Check-in', icon: QrCode },
 ];
 
 export default function AppSidebar() {

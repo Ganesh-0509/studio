@@ -1,190 +1,150 @@
-'use client';
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import {
-  ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
-  ChartLegend,
-  ChartLegendContent,
-} from '@/components/ui/chart';
-import { Badge } from '@/components/ui/badge';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table';
-import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from 'recharts';
-import { Leaf, Recycle, Users, Sprout } from 'lucide-react';
+import { Leaf, Globe, BarChart, LifeBuoy, MapPin, Mail, Phone } from 'lucide-react';
+import Link from 'next/link';
 
-const chartData = [
-  { month: 'January', wasteDiverted: 186, carbonSaved: 80 },
-  { month: 'February', wasteDiverted: 305, carbonSaved: 200 },
-  { month: 'March', wasteDiverted: 237, carbonSaved: 120 },
-  { month: 'April', wasteDiverted: 273, carbonSaved: 190 },
-  { month: 'May', wasteDiverted: 209, carbonSaved: 130 },
-  { month: 'June', wasteDiverted: 214, carbonSaved: 140 },
-];
-
-const chartConfig = {
-  wasteDiverted: {
-    label: 'Waste Diverted (kg)',
-    color: 'hsl(var(--chart-1))',
-    icon: Recycle,
-  },
-  carbonSaved: {
-    label: 'Carbon Saved (kg CO2)',
-    color: 'hsl(var(--chart-2))',
-    icon: Sprout,
-  },
-};
-
-const recentActivities = [
-  {
-    user: 'Alex Johnson',
-    action: 'Checked in at "Green Tech Summit"',
-    points: '+10 points',
-    time: '5m ago',
-  },
-  {
-    user: 'Eco-Catering Co.',
-    action: 'Registered as a new vendor',
-    points: 'Verified',
-    time: '1h ago',
-  },
-  {
-    user: 'Samantha Bee',
-    action: 'Completed "Recycling Challenge"',
-    points: '+50 points',
-    time: '3h ago',
-  },
-  {
-    user: 'Ben Carter',
-    action: 'Visited "Solar Power Solutions" booth',
-    points: '+5 points',
-    time: 'yesterday',
-  },
-];
-
-export default function DashboardPage() {
+export default function LandingPage() {
   return (
-    <div className="space-y-8">
-      <h1 className="text-3xl font-bold font-headline">Dashboard</h1>
+    <div className="bg-green-50 text-gray-800 font-sans">
+      {/* Navbar */}
+      <nav className="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md shadow-md z-50">
+        <div className="container mx-auto flex items-center justify-between px-6 py-4">
+          <div className="flex-shrink-0">
+            <Link href="/" className="text-2xl font-bold text-green-800">
+              Evergreen Events
+            </Link>
+          </div>
+          <div className="hidden md:flex flex-grow justify-center space-x-6">
+            <a href="#features" className="text-gray-600 hover:text-green-700 transition">Features</a>
+            <a href="#how-it-works" className="text-gray-600 hover:text-green-700 transition">How It Works</a>
+            <a href="#testimonials" className="text-gray-600 hover:text-green-700 transition">Testimonials</a>
+            <a href="#contact" className="text-gray-600 hover:text-green-700 transition">Contact</a>
+          </div>
+          <div className="flex-shrink-0 flex space-x-4">
+            <Link href="/login" className="px-4 py-2 text-green-700 border border-green-700 rounded-lg hover:bg-green-700 hover:text-white transition">
+              Login
+            </Link>
+            <Link href="/signup" className="px-6 py-2 bg-green-600 text-white rounded-lg shadow hover:bg-green-700 transition">
+              Get Started
+            </Link>
+          </div>
+        </div>
+      </nav>
 
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Waste Diverted</CardTitle>
-            <Leaf className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">1,254 kg</div>
-            <p className="text-xs text-muted-foreground">+15.2% from last month</p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Attendee Engagement</CardTitle>
-            <Users className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">8,432 Actions</div>
-            <p className="text-xs text-muted-foreground">+201 since last event</p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Eco-Vendors</CardTitle>
-            <Recycle className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">42</div>
-            <p className="text-xs text-muted-foreground">+5 new this month</p>
-          </CardContent>
-        </Card>
-      </div>
+      {/* Hero Section */}
+      <header className="min-h-screen flex items-center justify-center text-center px-4 relative bg-cover bg-center" style={{ backgroundImage: "url('/images/nature-bg.jpg')" }}>
+        <div className="absolute inset-0 bg-green-900/50"></div>
+        <div className="max-w-3xl relative z-10 mt-20 text-white">
+          <h1 className="text-5xl md:text-6xl font-extrabold mb-6">Host Unforgettable, Sustainable Events</h1>
+          <p className="text-lg md:text-xl mb-8 text-green-100">Your all-in-one platform for creating and managing events that are both memorable and eco-friendly.</p>
+          <div className="flex justify-center space-x-4">
+            <Link href="/signup" className="px-8 py-4 text-lg font-semibold text-green-800 bg-white rounded-xl shadow-lg transition hover:scale-105">
+              Create an Event
+            </Link>
+          </div>
+        </div>
+      </header>
 
-      <div className="grid gap-8 md:grid-cols-2">
-        <Card>
-          <CardHeader>
-            <CardTitle>Sustainability Impact</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <ChartContainer config={chartConfig} className="h-[300px] w-full">
-              <BarChart accessibilityLayer data={chartData}>
-                <CartesianGrid vertical={false} />
-                <XAxis
-                  dataKey="month"
-                  tickLine={false}
-                  tickMargin={10}
-                  axisLine={false}
-                  tickFormatter={(value) => value.slice(0, 3)}
-                />
-                <YAxis />
-                <ChartTooltip
-                  cursor={false}
-                  content={<ChartTooltipContent indicator="dot" />}
-                />
-                <ChartLegend content={<ChartLegendContent />} />
-                <Bar
-                  dataKey="wasteDiverted"
-                  fill="var(--color-wasteDiverted)"
-                  radius={4}
-                />
-                <Bar
-                  dataKey="carbonSaved"
-                  fill="var(--color-carbonSaved)"
-                  radius={4}
-                />
-              </BarChart>
-            </ChartContainer>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader>
-            <CardTitle>Recent Activity</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>User</TableHead>
-                  <TableHead>Action</TableHead>
-                  <TableHead className="text-right">Value</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {recentActivities.map((activity, index) => (
-                  <TableRow key={index}>
-                    <TableCell className="font-medium">{activity.user}</TableCell>
-                    <TableCell>
-                      {activity.action}
-                      <p className="text-xs text-muted-foreground md:hidden">
-                        {activity.time}
-                      </p>
-                    </TableCell>
-                    <TableCell className="text-right">
-                      <Badge
-                        variant={
-                          activity.points.startsWith('+')
-                            ? 'default'
-                            : 'secondary'
-                        }
-                        className={activity.points.startsWith('+') ? 'bg-primary/20 text-primary hover:bg-primary/30' : ''}
-                      >
-                        {activity.points}
-                      </Badge>
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </CardContent>
-        </Card>
-      </div>
+      {/* Features Section */}
+      <section id="features" className="py-20 px-4 bg-white">
+        <div className="container mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-12 text-green-800">Why Choose Evergreen?</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+            <div className="p-8 rounded-2xl bg-green-50/70 border border-green-200 shadow-lg">
+              <Leaf className="w-16 h-16 mx-auto mb-4 text-green-600" />
+              <h3 className="text-2xl font-semibold mb-2 text-green-900">Eco-Friendly Focus</h3>
+              <p className="text-gray-600">Tools and tips to help you host sustainable and responsible events.</p>
+            </div>
+            <div className="p-8 rounded-2xl bg-green-50/70 border border-green-200 shadow-lg">
+              <Globe className="w-16 h-16 mx-auto mb-4 text-green-600" />
+              <h3 className="text-2xl font-semibold mb-2 text-green-900">Global & Local</h3>
+              <p className="text-gray-600">Easily manage events anywhere in the world, in any language.</p>
+            </div>
+            <div className="p-8 rounded-2xl bg-green-50/70 border border-green-200 shadow-lg">
+              <BarChart className="w-16 h-16 mx-auto mb-4 text-green-600" />
+              <h3 className="text-2xl font-semibold mb-2 text-green-900">Attendee Analytics</h3>
+              <p className="text-gray-600">Gain insights into your audience and event performance with powerful analytics.</p>
+            </div>
+            <div className="p-8 rounded-2xl bg-green-50/70 border border-green-200 shadow-lg">
+              <LifeBuoy className="w-16 h-16 mx-auto mb-4 text-green-600" />
+              <h3 className="text-2xl font-semibold mb-2 text-green-900">24/7 Support</h3>
+              <p className="text-gray-600">Our team is always here to help you every step of the way.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* How it works */}
+      <section id="how-it-works" className="py-20 px-4 bg-gray-50">
+        <div className="container mx-auto text-center">
+            <h2 className="text-4xl font-bold mb-12 text-green-800">Get Started in 3 Easy Steps</h2>
+            <div className="grid md:grid-cols-3 gap-12 text-left relative">
+                {/* Dashed line */}
+                <div className="hidden md:block absolute top-1/2 left-0 w-full border-t-2 border-dashed border-green-300 -translate-y-1/2"></div>
+                
+                <div className="relative z-10 p-8 bg-white rounded-xl shadow-lg border-t-4 border-green-500">
+                    <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-green-500 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl">1</div>
+                    <h3 className="text-2xl font-semibold mt-6 mb-3 text-green-900">Create Your Account</h3>
+                    <p className="text-gray-600">Sign up for free and set up your organizer profile in minutes.</p>
+                </div>
+                <div className="relative z-10 p-8 bg-white rounded-xl shadow-lg border-t-4 border-green-500">
+                    <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-green-500 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl">2</div>
+                    <h3 className="text-2xl font-semibold mt-6 mb-3 text-green-900">Launch Your Event</h3>
+                    <p className="text-gray-600">Use our intuitive tools to design your event page and start selling tickets.</p>
+                </div>
+                <div className="relative z-10 p-8 bg-white rounded-xl shadow-lg border-t-4 border-green-500">
+                    <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-green-500 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl">3</div>
+                    <h3 className="text-2xl font-semibold mt-6 mb-3 text-green-900">Go Live!</h3>
+                    <p className="text-gray-600">Host your event and engage with your community, sustainably.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+      {/* Testimonials Section */}
+      <section id="testimonials" className="py-20 px-4 bg-green-700 text-white">
+        <div className="container mx-auto text-center">
+          <h2 className="text-4xl font-bold mb-12">Loved by Organizers Worldwide</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white/20 p-8 rounded-xl">
+              <p className="italic mb-4">"Evergreen Events made our annual conference a breeze. The platform is intuitive, and their focus on sustainability is a huge plus for our brand."</p>
+              <p className="font-bold">- Jane Doe, Eco-Conferences Inc.</p>
+            </div>
+            <div className="bg-white/20 p-8 rounded-xl">
+              <p className="italic mb-4">"Finally, an event platform that aligns with our values. Managing volunteers and vendors has never been easier."</p>
+              <p className="font-bold">- John Smith, GreenFest Organizers</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-20 px-6 bg-white">
+        <div className="container mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-12 text-green-800">Get In Touch</h2>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h3 className="text-2xl font-semibold mb-4 text-green-900">We're here to help!</h3>
+              <p className="text-gray-600 mb-6">Have a question or need support? Fill out the form or reach out to us directly.</p>
+              <p className="flex items-center mb-2"><MapPin className="w-5 h-5 mr-3 text-green-600"/>Bangalore, India</p>
+              <p className="flex items-center mb-2"><Mail className="w-5 h-5 mr-3 text-green-600"/><a href="mailto:support@evergreenevents.com" className="hover:underline">support@evergreenevents.com</a></p>
+              <p className="flex items-center"><Phone className="w-5 h-5 mr-3 text-green-600"/><a href="tel:+919876543210" className="hover:underline">+91 98765 43210</a></p>
+            </div>
+            <div className="bg-green-50/70 p-8 rounded-2xl shadow-lg border border-green-200">
+              <form>
+                <input type="text" placeholder="Your Name" className="w-full mb-4 px-4 py-3 rounded-lg bg-white text-gray-800 border border-green-300 focus:ring-2 focus:ring-green-500" />
+                <input type="email" placeholder="Your Email" className="w-full mb-4 px-4 py-3 rounded-lg bg-white text-gray-800 border border-green-300 focus:ring-2 focus:ring-green-500" />
+                <textarea placeholder="Your Message" rows={4} className="w-full mb-4 px-4 py-3 rounded-lg bg-white text-gray-800 border border-green-300 focus:ring-2 focus:ring-green-500"></textarea>
+                <button type="submit" className="w-full py-3 bg-green-600 text-white rounded-lg shadow hover:bg-green-700 transition">Send Message</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-green-800 text-green-100 py-6 text-center">
+        <p>&copy; {new Date().getFullYear()} Evergreen Events. Creating a greener tomorrow, one event at a time. 🌿</p>
+      </footer>
     </div>
   );
 }

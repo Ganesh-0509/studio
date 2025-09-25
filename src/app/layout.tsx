@@ -1,42 +1,54 @@
-import type { Metadata } from 'next';
+'use client';
+
 import './globals.css';
 import { SidebarProvider, SidebarInset } from '@/components/ui/sidebar';
 import AppSidebar from '@/components/layout/sidebar';
 import AppHeader from '@/components/layout/header';
 import { Toaster } from '@/components/ui/toaster';
+import { usePathname } from 'next/navigation';
+import ProtectedRoute from '@/components/auth/protected-route';
+import { Lato, Fira_Code } from 'next/font/google';
 
-export const metadata: Metadata = {
-  title: 'Evergreen Events',
-  description: 'Manage sustainable events with Evergreen Events.',
-};
+const lato = Lato({
+  subsets: ['latin'],
+  variable: '--font-lato',
+  weight: ['400', '700'],
+});
+
+const firaCode = Fira_Code({
+  subsets: ['latin'],
+  variable: '--font-fira-code',
+});
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = usePathname();
+  const isAuthPage = pathname === '/login' || pathname === '/signup';
+  const isDashboardPage = pathname.startsWith('/dashboard');
+
   return (
-    <html lang="en" className="h-full">
+    <html lang="en" className={`${lato.variable} ${firaCode.variable} h-full`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap"
-          rel="stylesheet"
-        />
+        <title>Evergreen Events</title>
+        <meta name="description" content="Manage sustainable events with Evergreen Events." />
       </head>
-      <body className="font-body antialiased h-full bg-background">
-        <SidebarProvider>
-          <AppSidebar />
-          <SidebarInset>
-            <AppHeader />
-            <div className="p-4 md:p-6 lg:p-8">{children}</div>
-          </SidebarInset>
-        </SidebarProvider>
+      <body className="font-sans antialiased h-full bg-background">
+        {isAuthPage || !isDashboardPage ? (
+          children
+        ) : (
+          <ProtectedRoute>
+            <SidebarProvider>
+              <AppSidebar />
+              <SidebarInset>
+                <AppHeader />
+                {children}
+              </SidebarInset>
+            </SidebarProvider>
+          </ProtectedRoute>
+        )}
         <Toaster />
       </body>
     </html>
