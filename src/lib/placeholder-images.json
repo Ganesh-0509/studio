@@ -1,3 +1,40 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "vendor-1",
+      "description": "Eco-friendly catering service",
+      "imageUrl": "https://images.unsplash.com/photo-1680342648571-b95876a6c24d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxmb29kJTIwY2F0ZXJpbmd8ZW58MHx8fHwxNzU4ODE0ODA1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "food catering"
+    },
+    {
+      "id": "vendor-2",
+      "description": "Sustainable event staging",
+      "imageUrl": "https://images.unsplash.com/photo-1599739291060-4578e77dac5d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxldmVudCUyMHN0YWdlfGVufDB8fHx8MTc1ODgwMDYzMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "event stage"
+    },
+    {
+      "id": "vendor-3",
+      "description": "Recycled material decorations",
+      "imageUrl": "https://images.unsplash.com/photo-1653710209991-7b8d6f492e07?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxldmVudCUyMGRlY29yYXRpb25zfGVufDB8fHx8MTc1ODgxNDgwNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "event decorations"
+    },
+    {
+      "id": "vendor-4",
+      "description": "Green transportation services",
+      "imageUrl": "https://images.unsplash.com/photo-1684578568824-65bb3f622a0f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxlbGVjdHJpYyUyMGJ1c3xlbnwwfHx8fDE3NTg4MTQ4MDd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "electric bus"
+    },
+    {
+      "id": "vendor-5",
+      "description": "Compostable serviceware provider",
+      "imageUrl": "https://images.unsplash.com/photo-1527639174867-b0dc9143e50c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxiYW1ib28lMjBjdXRsZXJ5fGVufDB8fHx8MTc1ODc1MjkxMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "bamboo cutlery"
+    },
+    {
+      "id": "vendor-6",
+      "description": "Solar powered sound systems",
+      "imageUrl": "https://images.unsplash.com/photo-1573339887874-de759041d685?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzb3VuZCUyMHN5c3RlbXxlbnwwfHx8fDE3NTg4MDQ5NTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sound system"
+    }
+  ]
 }
